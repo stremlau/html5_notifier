@@ -1,0 +1,31 @@
+{
+    "name": "kitist/html5_notifier",
+    "type": "roundcube-plugin",
+    "description": "Desktop Notifications for Roundcube",
+    "keywords": ["notification","desktop","mail"],
+    "homepage": "https://github.com/kitist/html5_notifier",
+    "license": "GPL-3.0+",
+    "authors": [
+        {
+            "name": "Tilman Stremlau",
+            "email": "tilman@stremlau.net",
+            "homepage": "http://stremlau.net",
+            "role": "Developer"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://plugins.roundcube.net"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "roundcube/plugin-installer": ">=0.1.3"
+    },
+    "extra": {
+        "roundcube": {
+            "min-version": "0.8.0"
+        }
+    }
+}
