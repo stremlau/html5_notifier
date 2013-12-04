@@ -3,6 +3,7 @@ $labels = array();
 $labels['shownotifies'] = 'Desktop Notifications';
 $labels['conf_browser'] = 'Configure browser';
 $labels['test_browser'] = 'Test';
+$labels['excluded_directories'] = 'Notification\'s excluded directories';
 $labels['check_ok'] = 'Your browser settings are correct.';
 $labels['check_fail'] = 'It was not possible to show a notification, please click "Configure browser"!';
 $labels['check_fail_blocked'] = 'Your browser blocked the notification, please set the permission in the browser settings!';

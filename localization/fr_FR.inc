@@ -3,6 +3,7 @@ $labels = array();
 $labels['shownotifies'] = 'Notifications de bureau';
 $labels['conf_browser'] = 'Configurer votre navigateur';
 $labels['test_browser'] = 'Test';
+$labels['excluded_directories'] = 'Répertoires exclus des notifications';
 $labels['check_ok'] = 'Les paramètres de votre navigateur sont corrects.';
 $labels['check_fail'] = 'Il n\'était pas possible d\'afficher les notifications, s\'il vous plaît cliquez sur "Configurer votre navigateur"!';
 $labels['check_fail_blocked'] = 'Votre navigateur a bloqué la notification, s\'il vous plaît autorisez-les dans les paramètres du navigateur!';

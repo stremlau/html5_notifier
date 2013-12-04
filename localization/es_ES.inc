@@ -4,6 +4,7 @@ $labels = array();
 $labels['shownotifies'] = 'Notificaciones Escritorio';
 $labels['conf_browser'] = 'Configurar Navegador';
 $labels['test_browser'] = 'Test';
+$labels['excluded_directories'] = 'Directorios notificaciones Excluidos';
 $labels['check_ok'] = 'La configuración de tu Navegador es correcta.';
 $labels['check_fail'] = 'No fue posible mostrar la notificación, por favor haz clic en "Configurar Navegador"!';
 $labels['check_fail_blocked'] = 'Your browser blocked the notification, please set the permission in the browser settings!';

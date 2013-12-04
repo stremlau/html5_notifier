@@ -3,6 +3,7 @@ $labels = array();
 $labels['shownotifies'] = 'Upozornenia na pracovnej ploche';
 $labels['conf_browser'] = 'Nakonfigurovať prehliadač';
 $labels['test_browser'] = 'Test';
+$labels['excluded_directories'] = 'Vylúčené adresára oznámenia';
 $labels['check_ok'] = 'Nastavenia tvojho prehliadača sú správne.';
 $labels['check_fail'] = 'Nebolo možné zobraziť upozornenie, kliknite na "Nakonfigurovať prehliadač"!';
 $labels['check_fail_blocked'] = 'Tvoj prehliadač blokoval upozornenie, prosím, nastav právomoci v prehliadači!';
