@@ -80,7 +80,7 @@ class html5_notifier extends rcube_plugin
             $times = array('3', '5', '8', '10', '12', '15', '20', '25', '30');
             foreach ($times as $time)
                 $select_duration->add($time.' '.$this->gettext('seconds'), $time);
-            $select_duration->add($this->gettext('durable'), -1);
+            $select_duration->add($this->gettext('durable'), '-1');
 			
 			$select_smbox = new html_select(array('name' => '_html5_notifier_smbox', 'id' => $field_id));
             $select_smbox->add($this->gettext('no_mailbox'), '0');
