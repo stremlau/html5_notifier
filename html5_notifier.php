@@ -32,7 +32,7 @@ class html5_notifier extends rcube_plugin
             $this->include_script("html5_notifier.js");
             if ($RCMAIL->action != 'check-recent')
             {
-                $this->add_texts('localization', array('notification_title', 'ok_notifications', 'no_notifications', 'check_ok', 'check_fail', 'check_fail_blocked')); //PRÄZESIEREN
+                $this->add_texts('localization', array('notification_title', 'ok_notifications', 'no_notifications', 'check_ok', 'check_fail', 'check_fail_blocked')); //PRï¿½ZESIEREN
             }
         }
     }
@@ -44,6 +44,7 @@ class html5_notifier extends rcube_plugin
 		$RCMAIL->storage->set_mailbox($args['mailbox']);
 		$RCMAIL->storage->search($args['mailbox'], "RECENT", null);
 		$msgs = (array) $RCMAIL->storage->list_headers($args['mailbox']);
+		$excluded_directories = explode(';', $RCMAIL->config->get('html5_notifier_excluded_directories'));
 
 		foreach ($msgs as $msg) {
 		    $from = $msg->get('from');
@@ -54,7 +55,7 @@ class html5_notifier extends rcube_plugin
 			}
 			$subject = ((!empty($mbox)) ? $mbox.': ' : '').$msg->get('subject');
 
-            if(strtolower($_SESSION['username']) == strtolower($RCMAIL->user->data['username']))
+            if(strtolower($_SESSION['username']) == strtolower($RCMAIL->user->data['username']) && !in_array($mbox, $excluded_directories))
             {
                 $RCMAIL->output->command("plugin.showNotification", array(
                     'duration' => $RCMAIL->config->get('html5_notifier_duration'),
@@ -95,8 +96,15 @@ class html5_notifier extends rcube_plugin
                 'title' => html::label($field_id, Q($this->gettext('shownotifies'))), 
                 'content' => $content,
             );
-            
-            $RCMAIL->output->add_script("$(document).ready(function(){ rcmail_browser_notifications_colorate(); });");            
+
+			$field_id .= '_excluded';
+			$input_excluded = new html_inputfield(array('name' => '_html5_notifier_excluded_directories', 'id' => $field_id));
+			$args['blocks']['new_message']['options']['html5_notifier_excluded_directories'] = array(
+                'title' => html::label($field_id, Q($this->gettext('excluded_directories'))),
+                'content' => $input_excluded->show($RCMAIL->config->get('html5_notifier_excluded_directories').''),
+            );
+
+            $RCMAIL->output->add_script("$(document).ready(function(){ rcmail_browser_notifications_colorate(); });");
         }
         return $args;
     }
@@ -107,6 +115,7 @@ class html5_notifier extends rcube_plugin
         {
             $args['prefs']['html5_notifier_duration'] = get_input_value('_html5_notifier_duration', RCUBE_INPUT_POST);
 			$args['prefs']['html5_notifier_smbox'] = get_input_value('_html5_notifier_smbox', RCUBE_INPUT_POST);
+			$args['prefs']['html5_notifier_excluded_directories'] = get_input_value('_html5_notifier_excluded_directories', RCUBE_INPUT_POST);
             return $args;
         }
     }
