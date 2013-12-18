@@ -45,7 +45,7 @@ class html5_notifier extends rcube_plugin
 		$RCMAIL->storage->search($args['mailbox'], "RECENT", null);
 		$msgs = (array) $RCMAIL->storage->list_headers($args['mailbox']);
 		$excluded_directories = preg_split("/(,|;| )+/", $RCMAIL->config->get('html5_notifier_excluded_directories'));
-print_r($excluded_directories);
+
 		foreach ($msgs as $msg) {
 		    $from = $msg->get('from');
 			$mbox = '';
