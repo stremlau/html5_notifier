@@ -9,3 +9,6 @@
 0.4
 - updated to work with Firefox and the new Notification API
 - fixed UTF-8 issues
+
+0.5 (thanks to nicolas-joubert!)
+- add ability to exclude some directories

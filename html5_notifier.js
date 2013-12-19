@@ -2,7 +2,7 @@
  * html5_notifier
  * Shows a desktop notification every time a new (recent) mail comes in
  *
- * @version 0.4 - 01.12.2013
+ * @version 0.5.0 - 19.12.2013
  * @author Tilman Stremlau <tilman@stremlau.net>
  * @website stremlau.net/html5_notifier
  * @licence GNU GPL
