@@ -1,6 +1,7 @@
 <?php
 $labels = array();
 $labels['shownotifies'] = 'Oznámení na ploše';
+$labels['onlynew'] = 'Zobrazit pouze nové zprávy';
 $labels['conf_browser'] = 'Nastavit prohlížeč';
 $labels['test_browser'] = 'Test';
 $labels['excluded_directories'] = 'Neoznamovat nové zprávy ve složkách';

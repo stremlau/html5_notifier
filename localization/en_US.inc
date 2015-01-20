@@ -1,6 +1,7 @@
 <?php
 $labels = array();
 $labels['shownotifies'] = 'Desktop Notifications';
+$labels['onlynew'] = 'Show only new messages';
 $labels['conf_browser'] = 'Configure browser';
 $labels['test_browser'] = 'Test';
 $labels['excluded_directories'] = 'Notification\'s excluded directories';
