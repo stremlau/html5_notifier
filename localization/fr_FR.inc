@@ -1,6 +1,7 @@
 ﻿<?php
 $labels = array();
 $labels['shownotifies'] = 'Notifications de bureau';
+$labels['onlynew'] = 'Notification seulement dès messages nouveaux';
 $labels['conf_browser'] = 'Configurer votre navigateur';
 $labels['test_browser'] = 'Test';
 $labels['excluded_directories'] = 'Répertoires exclus des notifications';

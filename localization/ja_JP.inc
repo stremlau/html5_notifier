@@ -1,6 +1,7 @@
 <?php
 $labels = array();
 $labels['shownotifies'] = 'デスクトップ通知';
+$labels['onlynew'] = '新しいメッセージだけを表示する';
 $labels['conf_browser'] = 'ブラウザの設定';
 $labels['test_browser'] = 'テスト';
 $labels['excluded_directories'] = '通知から除外するディレクトリ';

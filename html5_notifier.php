@@ -41,8 +41,10 @@ class html5_notifier extends rcube_plugin
     {
         $RCMAIL = rcmail::get_instance();
 
+        $search = $RCMAIL->config->get('html5_notifier_only_new', false) ?'NEW'  : 'RECENT';
+
 		$RCMAIL->storage->set_mailbox($args['mailbox']);
-		$RCMAIL->storage->search($args['mailbox'], "RECENT", null);
+		$RCMAIL->storage->search($args['mailbox'], $search, null);
 		$msgs = (array) $RCMAIL->storage->list_headers($args['mailbox']);
 		$excluded_directories = preg_split("/(,|;| )+/", $RCMAIL->config->get('html5_notifier_excluded_directories'));
 
@@ -97,6 +99,13 @@ class html5_notifier extends rcube_plugin
                 'content' => $content,
             );
 
+            $check_only_new = new html_checkbox(array('name' => '_html5_notifier_only_new', 'id' => $field_id . '_only_new', 'value' => 1));
+            $content = $check_only_new->show($RCMAIL->config->get('html5_notifier_only_new', false));
+            $args['blocks']['new_message']['options']['html5_notifier_only_new'] = array(
+                'title' => html::label($field_id, Q($this->gettext('onlynew'))),
+                'content' => $content,
+            );
+
 			$field_id .= '_excluded';
 			$input_excluded = new html_inputfield(array('name' => '_html5_notifier_excluded_directories', 'id' => $field_id));
 			$args['blocks']['new_message']['options']['html5_notifier_excluded_directories'] = array(
@@ -113,6 +122,7 @@ class html5_notifier extends rcube_plugin
     {
         if($args['section'] == 'mailbox')
         {
+            $args['prefs']['html5_notifier_only_new'] = !empty($_POST['_html5_notifier_only_new']);
             $args['prefs']['html5_notifier_duration'] = get_input_value('_html5_notifier_duration', RCUBE_INPUT_POST);
 			$args['prefs']['html5_notifier_smbox'] = get_input_value('_html5_notifier_smbox', RCUBE_INPUT_POST);
 			$args['prefs']['html5_notifier_excluded_directories'] = get_input_value('_html5_notifier_excluded_directories', RCUBE_INPUT_POST);

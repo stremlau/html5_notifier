@@ -1,6 +1,7 @@
 <?php
 $labels = array();
 $labels['shownotifies'] = 'Upozornenia na pracovnej ploche';
+$labels['onlynew'] = 'Iba nové správy';
 $labels['conf_browser'] = 'Nakonfigurovať prehliadač';
 $labels['test_browser'] = 'Test';
 $labels['excluded_directories'] = 'Vylúčené adresára oznámenia';

@@ -1,6 +1,7 @@
 <?php
 $labels = array();
 $labels['shownotifies'] = 'Bureaubladmeldingen';
+$labels['onlynew'] = 'Alleen voor nieuwe berichten';
 $labels['conf_browser'] = 'Configureer browser';
 $labels['test_browser'] = 'Test';
 $labels['excluded_directories'] = 'Geen meldingen tonen voor volgende mappen';

@@ -2,6 +2,7 @@
 //Thanks to David Perez www.closemarketing.es
 $labels = array();
 $labels['shownotifies'] = 'Notificaciones Escritorio';
+$labels['onlynew'] = 'Mostrar sólo los mensajes nuevos';
 $labels['conf_browser'] = 'Configurar Navegador';
 $labels['test_browser'] = 'Test';
 $labels['excluded_directories'] = 'Directorios notificaciones Excluidos';
