@@ -19,4 +19,8 @@ $labels['durable'] = 'durable';
 $labels['no_mailbox'] = 'don\'t show mailbox';
 $labels['short_mailbox'] = 'show short mailbox';
 $labels['full_mailbox'] = 'show full mailbox';
+
+$labels['notifier_popuptype'] = 'How to open message on notification click';
+$labels['new_tab'] = 'In a new tab';
+$labels['new_window'] = 'In a new window';
 ?>

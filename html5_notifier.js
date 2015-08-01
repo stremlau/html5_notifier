@@ -19,7 +19,11 @@ function rcmail_show_notification(message)
                 body: message.subject
             });
             notification.onclick = function() {
-                window.open('?_task=mail&_action=show&_uid='+message.uid);
+				if(message.opentype == '1') {
+					rcmail.open_window('?_task=mail&_action=show&_uid='+message.uid);
+				} else {
+					window.open('?_task=mail&_action=show&_extwin=1&_uid='+message.uid);
+				}
             }
             if (parseInt(message.duration) > 0)
             {
@@ -65,6 +69,7 @@ function rcmail_browser_notifications_test() {
         message.uid = 0;
         message.subject = 'It Works!';
         message.from = 'TESTMAN';
+        message.opentype = $('select[name=_html5_notifier_popuptype]').val();
         rcmail_show_notification(message);   
     }
     else
