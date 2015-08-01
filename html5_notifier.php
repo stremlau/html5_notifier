@@ -41,7 +41,9 @@ class html5_notifier extends rcube_plugin
     {
         $RCMAIL = rcmail::get_instance();
 
-        $search = $RCMAIL->config->get('html5_notifier_only_new', false) ?'NEW'  : 'RECENT';
+        //$search = $RCMAIL->config->get('html5_notifier_only_new', false) ?'NEW'  : 'RECENT';
+		$deleted = $RCMAIL->config->get('skip_deleted') ? 'UNDELETED ' : '';
+		$search  = $deleted . 'UNSEEN UID ' . $args['diff']['new'];
 
 		$RCMAIL->storage->set_mailbox($args['mailbox']);
 		$RCMAIL->storage->search($args['mailbox'], $search, null);
