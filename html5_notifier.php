@@ -133,10 +133,10 @@ class html5_notifier extends rcube_plugin
         if($args['section'] == 'mailbox')
         {
             $args['prefs']['html5_notifier_only_new'] = !empty($_POST['_html5_notifier_only_new']);
-            $args['prefs']['html5_notifier_duration'] = get_input_value('_html5_notifier_duration', RCUBE_INPUT_POST);
-			$args['prefs']['html5_notifier_smbox'] = get_input_value('_html5_notifier_smbox', RCUBE_INPUT_POST);
-			$args['prefs']['html5_notifier_excluded_directories'] = get_input_value('_html5_notifier_excluded_directories', RCUBE_INPUT_POST);
-			$args['prefs']['html5_notifier_popuptype'] = get_input_value('_html5_notifier_popuptype', RCUBE_INPUT_POST);
+            $args['prefs']['html5_notifier_duration'] = rcube_utils::get_input_value('_html5_notifier_duration', rcube_utils::INPUT_POST);
+			$args['prefs']['html5_notifier_smbox'] = rcube_utils::get_input_value('_html5_notifier_smbox', rcube_utils::INPUT_POST);
+			$args['prefs']['html5_notifier_excluded_directories'] = rcube_utils::get_input_value('_html5_notifier_excluded_directories', rcube_utils::INPUT_POST);
+			$args['prefs']['html5_notifier_popuptype'] = rcube_utils::get_input_value('_html5_notifier_popuptype', rcube_utils::INPUT_POST);
 			return $args;
         }
     }
