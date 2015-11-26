@@ -45,7 +45,7 @@ class html5_notifier extends rcube_plugin
 		$deleted = $RCMAIL->config->get('skip_deleted') ? 'UNDELETED ' : '';
 		$search  = $deleted . 'UNSEEN UID ' . $args['diff']['new'];
 
-		$RCMAIL->storage->set_mailbox($args['mailbox']);
+		$RCMAIL->storage->set_folder($args['mailbox']);
 		$RCMAIL->storage->search($args['mailbox'], $search, null);
 		$msgs = (array) $RCMAIL->storage->list_messages($args['mailbox']);
 		$excluded_directories = preg_split("/(,|;| )+/", $RCMAIL->config->get('html5_notifier_excluded_directories'));
