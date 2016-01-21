@@ -41,7 +41,9 @@ class html5_notifier extends rcube_plugin
     {
         $RCMAIL = rcmail::get_instance();
 
-        $search = $RCMAIL->config->get('html5_notifier_only_new', false) ?'NEW'  : 'RECENT';
+        //$search = $RCMAIL->config->get('html5_notifier_only_new', false) ?'NEW'  : 'RECENT';
+		$deleted = $RCMAIL->config->get('skip_deleted') ? 'UNDELETED ' : '';
+		$search  = $deleted . 'UNSEEN UID ' . $args['diff']['new'];
 
 		$RCMAIL->storage->set_mailbox($args['mailbox']);
 		$RCMAIL->storage->search($args['mailbox'], $search, null);
@@ -61,6 +63,7 @@ class html5_notifier extends rcube_plugin
             {
                 $RCMAIL->output->command("plugin.showNotification", array(
                     'duration' => $RCMAIL->config->get('html5_notifier_duration'),
+                    'opentype' => $RCMAIL->config->get('html5_notifier_popuptype'),
                     'subject' => $subject,
                     'from' => $from,
                     'uid' => $msg->uid.'&_mbox='.$args['mailbox'],
@@ -106,12 +109,19 @@ class html5_notifier extends rcube_plugin
                 'content' => $content,
             );
 
-			$field_id .= '_excluded';
-			$input_excluded = new html_inputfield(array('name' => '_html5_notifier_excluded_directories', 'id' => $field_id));
+			$input_excluded = new html_inputfield(array('name' => '_html5_notifier_excluded_directories', 'id' => $field_id . '_excluded'));
 			$args['blocks']['new_message']['options']['html5_notifier_excluded_directories'] = array(
                 'title' => html::label($field_id, Q($this->gettext('excluded_directories'))),
                 'content' => $input_excluded->show($RCMAIL->config->get('html5_notifier_excluded_directories').''),
             );
+            
+			$select_type = new html_select(array('name' => '_html5_notifier_popuptype', 'id' => $field_id . '_popuptype'));
+			$select_type->add($this->gettext('new_tab'), '0');
+			$select_type->add($this->gettext('new_window'), '1');
+			$args['blocks']['new_message']['options']['html5_notifier_popuptype'] = array(
+				'title' => html::label($field_id, Q($this->gettext('notifier_popuptype'))),
+				'content' => $select_type->show($RCMAIL->config->get('html5_notifier_popuptype').'')
+			);
 
             $RCMAIL->output->add_script("$(document).ready(function(){ rcmail_browser_notifications_colorate(); });");
         }
@@ -126,7 +136,8 @@ class html5_notifier extends rcube_plugin
             $args['prefs']['html5_notifier_duration'] = get_input_value('_html5_notifier_duration', RCUBE_INPUT_POST);
 			$args['prefs']['html5_notifier_smbox'] = get_input_value('_html5_notifier_smbox', RCUBE_INPUT_POST);
 			$args['prefs']['html5_notifier_excluded_directories'] = get_input_value('_html5_notifier_excluded_directories', RCUBE_INPUT_POST);
-            return $args;
+			$args['prefs']['html5_notifier_popuptype'] = get_input_value('_html5_notifier_popuptype', RCUBE_INPUT_POST);
+			return $args;
         }
     }
 }
