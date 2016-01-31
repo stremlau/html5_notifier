@@ -57,7 +57,7 @@ class html5_notifier extends rcube_plugin
 				case 1: $mbox = array_pop(explode('.', str_replace('INBOX.', '', $args['mailbox']))); break;
 				case 2: $mbox = str_replace('.', '/', str_replace('INBOX.', '', $args['mailbox'])); break;
 			}
-			$subject = ((!empty($mbox)) ? $mbox.': ' : '').$msg->get('subject');
+			$subject = ((!empty($mbox)) ? rcube_charset::convert($mbox, 'UTF7-IMAP') . ': ' : '') . $msg->get('subject');
 
             if(strtolower($_SESSION['username']) == strtolower($RCMAIL->user->data['username']) && !in_array($mbox, $excluded_directories))
             {
