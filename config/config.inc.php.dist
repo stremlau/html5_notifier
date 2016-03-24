@@ -10,4 +10,4 @@ $config['html5_notifier_duration'] = '3';
 $config['html5_notifier_smbox'] = '1'; 
 
 // Directories excluded for notifications. Use ; as separator for multiple directories
-$config['html5_notifier_excluded_directories'] = 'Trash' 
+$config['html5_notifier_excluded_directories'] = 'Trash';
