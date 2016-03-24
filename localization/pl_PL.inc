@@ -19,4 +19,7 @@ $labels['durable'] = 'ciągłe';
 $labels['no_mailbox'] = 'nie pokazuj nazwy folderu';
 $labels['short_mailbox'] = 'pokazuj krótką nazwę folderu';
 $labels['full_mailbox'] = 'pokazuj pełną ścieżkę folderu';
-?>
+
+$labels['notifier_popuptype'] = 'Jak otwierać wiadomości po kliknięciu w powiadomienie';
+$labels['new_tab'] = 'W nowej zakładce';
+$labels['new_window'] = 'W nowym oknie' ;
