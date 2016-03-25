@@ -19,4 +19,8 @@ $labels['durable'] = 'dauerhaft';
 $labels['no_mailbox'] = 'Ordnernamen nicht anzeigen';
 $labels['short_mailbox'] = 'kurzen Ordnernamen anzeigen';
 $labels['full_mailbox'] = 'ganzen Ordnernamen anzeigen';
+
+$labels['notifier_popuptype'] = 'Nachrichten nach Klick auf Benachrichtigung öffnen';
+$labels['new_tab'] = 'In einem neuen Tab';
+$labels['new_window'] = 'In einem neuen Fenster';
 ?>
