@@ -34,7 +34,7 @@ class html5_notifier extends rcube_plugin
 
         if ($RCMAIL->action != 'check-recent')
         {
-            $this->add_texts('localization', array('notification_title', 'ok_notifications', 'no_notifications', 'check_ok', 'check_fail',$
+            $this->add_texts('localization', array('notification_title', 'ok_notifications', 'no_notifications', 'check_ok', 'check_fail', 'check_fail_blocked')); //PR�ZESIEREN
         }
     }
 
