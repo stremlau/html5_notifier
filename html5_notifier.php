@@ -30,10 +30,11 @@ class html5_notifier extends rcube_plugin
         {
             $this->add_hook('new_messages', array($this, 'show_notification'));
             $this->include_script("html5_notifier.js");
-            if ($RCMAIL->action != 'check-recent')
-            {
-                $this->add_texts('localization', array('notification_title', 'ok_notifications', 'no_notifications', 'check_ok', 'check_fail', 'check_fail_blocked')); //PR�ZESIEREN
-            }
+        }
+
+        if ($RCMAIL->action != 'check-recent')
+        {
+            $this->add_texts('localization', array('notification_title', 'ok_notifications', 'no_notifications', 'check_ok', 'check_fail',$
         }
     }
 
