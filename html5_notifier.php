@@ -29,8 +29,9 @@ class html5_notifier extends rcube_plugin
         if ($RCMAIL->config->get('html5_notifier_duration').'' != '0')
         {
             $this->add_hook('new_messages', array($this, 'show_notification'));
-            $this->include_script("html5_notifier.js");
         }
+
+        $this->include_script("html5_notifier.js");
 
         if ($RCMAIL->action != 'check-recent')
         {
