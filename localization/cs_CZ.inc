@@ -19,4 +19,8 @@ $labels['durable'] = 'trvale';
 $labels['no_mailbox'] = 'nezobrazovat složky';
 $labels['short_mailbox'] = 'zobrazit zkrácené názvy složek';
 $labels['full_mailbox'] = 'zobrazit dlouhé názvy složek';
+
+$labels['notifier_popuptype'] = 'Jak otevřít zprávu při kliknutí na oznámení';
+$labels['new_tab'] = 'V nové záložce';
+$labels['new_window'] = 'V novém okně';
 ?>
