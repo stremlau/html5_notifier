@@ -61,7 +61,7 @@ class html5_notifier extends rcube_plugin
 			}
 			$subject = ((!empty($mbox)) ? rcube_charset::convert($mbox, 'UTF7-IMAP') . ': ' : '') . $msg->get('subject');
 
-            if(strtolower($_SESSION['username']) == strtolower($RCMAIL->user->data['username']) && !in_array($mbox, $excluded_directories))
+            if(strtolower($_SESSION['username']) == strtolower($RCMAIL->user->data['username']) && !in_array($args['mailbox'], $excluded_directories))
             {
                 $RCMAIL->output->command("plugin.showNotification", array(
                     'duration' => $RCMAIL->config->get('html5_notifier_duration'),
