@@ -5,6 +5,7 @@
     "keywords": ["notification","desktop","mail"],
     "homepage": "https://github.com/kitist/html5_notifier",
     "license": "GPL-3.0+",
+    "version": "0.6.4",
     "authors": [
         {
             "name": "Tilman Stremlau",
