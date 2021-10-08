@@ -11,3 +11,8 @@ $config['html5_notifier_smbox'] = '1';
 
 // Directories excluded for notifications. Use ; as separator for multiple directories
 $config['html5_notifier_excluded_directories'] = 'Trash';
+
+// How to open message on notification click
+// 0 - In a new tab
+// 1 - In a new window
+$config['html5_notifier_popuptype'] = '1'; 
